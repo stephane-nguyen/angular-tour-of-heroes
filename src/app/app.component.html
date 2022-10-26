@@ -1,0 +1,13 @@
+<!-- app.component = shell -->
+
+<h1>{{title}}</h1>
+<nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/heroes">Heroes</a>
+</nav>
+<!-- <app-heroes></app-heroes> --> 
+<!-- The AppComponent template no longer needs <app-heroes> because the application only displays the HeroesComponent when the user navigates to it. -->
+    <!-- The <router-outlet> tells the router where to display routed views. -->
+<router-outlet></router-outlet>
+<!-- add child components -->
+<app-messages></app-messages>

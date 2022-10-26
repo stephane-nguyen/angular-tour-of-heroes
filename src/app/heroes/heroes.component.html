@@ -1,0 +1,35 @@
+<h2>My Heroes</h2>
+
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+    Add hero
+  </button>
+</div>
+
+<ul class="heroes">
+    <!-- heroes	Holds the mock heroes list from the
+         HeroesComponent class, the mock heroes list. -->
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button type="button" class="delete" title="delete hero"
+      (click)="delete(hero)">x</button>
+  </li>
+</ul>
+
+<!-- add a click event binding -->
+<!-- When the current row hero is the same as the selectedHero, Angular adds the selected CSS class. When the two heroes are different, Angular removes the class. (TRUE/FALSE)-->
+<!-- <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span>
+    <span class="name">{{hero.name}}</span>
+</button> -->
+
+<!-- add child component -->
+<!-- It's a one-way data binding from the selectedHero property of the HeroesComponent to the hero property of the target element,
+     which maps to the hero property of the HeroDetailComponent. -->
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
